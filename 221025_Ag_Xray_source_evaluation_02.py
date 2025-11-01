@@ -19,6 +19,7 @@ from scipy import sparse
 from scipy.sparse.linalg import spsolve
 import astroscrappy
 
+# higher lambda - smoother baseline, lower p - baseline stays below peaks
 def als_baseline(y, lam=1e3, p=0.001, niter=1000):
     L = len(y)
     D = sparse.diags([1, -2, 1], [0, -1, -2], shape=(L, L-2))
