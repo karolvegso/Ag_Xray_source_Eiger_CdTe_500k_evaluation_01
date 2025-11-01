@@ -33,11 +33,11 @@ def als_baseline(y, lam=1e3, p=0.001, niter=1000):
     return z
 
 # define path to h5 master file
-path_to_master_file=r"G:\100225_backup\GIWAXS_measurements\Ag_Xray_source\Erik_battery_backup\151025_good_one_rhd_1st_battery\14-10-2025\RHD_battery\x_-4.10mm,z_-3.5mm,w_4mm-24hours\series_398_master.h5"
+path_to_master_file=r"E:\100225_backup\GIWAXS_measurements\Ag_Xray_source\Erik_battery_backup\151025_good_one_rhd_1st_battery\14-10-2025\RHD_battery\x_-4.10mm,z_-3.5mm,w_4mm-24hours\series_398_master.h5"
 # open h5 master file with fabio
 img = fabio.open(path_to_master_file)
 # path to calibration poni file
-path_to_calib_poni=r"G:\100225_backup\GIWAXS_measurements\Ag_Xray_source\Erik_battery_backup\131025_good_one\10-10-2025\calibration\calibration_poni_file\221025_calib_poni_file_01.poni"
+path_to_calib_poni=r"E:\100225_backup\GIWAXS_measurements\Ag_Xray_source\Erik_battery_backup\031025_good_one\02-10-2025\calibration_LaB6\x_-6.10mm,z_-22mm,w_4mm\LaB6.poni"
 # load pyFAI calibration poni file
 ai = pyFAI.load(path_to_calib_poni)
 # specify size of images
@@ -54,7 +54,7 @@ ai.poni2=dim_x*pixel_size_x - ai.poni2
 ai.rot1=(-1.0)*ai.rot1
 ##print(ai.rot1)
 # path to mask file
-path_to_mask_file=r"G:\100225_backup\GIWAXS_measurements\Ag_Xray_source\Erik_battery_backup\131025_good_one\10-10-2025\calibration\calibration_poni_file\221025_calib_poni_file_01.edf"
+path_to_mask_file=r"E:\100225_backup\GIWAXS_measurements\Ag_Xray_source\Erik_battery_backup\031025_good_one\02-10-2025\calibration_LaB6\x_-6.10mm,z_-22mm,w_4mm\LaB6.edf"
 # tell to program if you want to use mask, it can be True or False boolean value
 mask_switch = True
 if (mask_switch == True):
@@ -127,7 +127,7 @@ intensity_1d_baseline_cosmic = np.zeros((no_points_in_radial_cut, no_image_calc)
 intensity_1d_corrected = np.zeros((no_points_in_radial_cut, no_image_calc), dtype=float)
 intensity_1d_corrected_cosmic = np.zeros((no_points_in_radial_cut, no_image_calc), dtype=float)
 # path to output_folder
-path_to_output_folder=r"g:\100225_backup\GIWAXS_measurements\Ag_Xray_source\Erik_battery_backup\151025_good_one_rhd_1st_battery\14-10-2025\RHD_battery\output_folder"
+path_to_output_folder=r"e:\100225_backup\GIWAXS_measurements\Ag_Xray_source\Erik_battery_backup\151025_good_one_rhd_1st_battery\14-10-2025\RHD_battery\output_folder"
 # create output sub folders for radial cuts and 2D integartions
 path_to_output_folder_radial_cuts = os.path.join(path_to_output_folder, "radial_cuts")
 path_to_output_folder_radial_cuts_cosmic = os.path.join(path_to_output_folder, "radial_cuts_cosmic")
